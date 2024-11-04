@@ -1,0 +1,12 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+    {% for post in posts %}
+        <h3>{{ post.title }}</h3>
+        {% if post.image %}<div><img src="{{ post.image.url }}" alt="" width="200px" height="200px"></div>{% endif %}
+    {% endfor %}
+</body>
+</html>
