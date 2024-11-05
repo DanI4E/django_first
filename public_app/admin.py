@@ -6,5 +6,5 @@ from .models import Post
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     list_display = ('id', 'created_at', 'title', 'image')
-    ordering = ('-created_at', '-id',)
+    ordering = ('-id', '-created_at')
     readonly_fields = ('created_at',)
