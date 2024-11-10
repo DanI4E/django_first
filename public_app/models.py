@@ -17,6 +17,7 @@ def path_and_rename(instance, filename):
 
 
 class Post(models.Model):
+    objects = None
     created_at = models.DateField(auto_now_add=True)
     title = models.CharField(max_length=256, unique=False, blank=False, null=False)
     text = models.TextField(blank=False, null=False)
