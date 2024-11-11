@@ -6,6 +6,7 @@
 </head>
 <body>
     <form method='post' action='/registration/'>
+
         {% csrf_token %}
         {{ reg_form }}
         <input type='submit' value="Зарегистрироваться">

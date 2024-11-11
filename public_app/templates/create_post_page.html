@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Написать пост</title>
+</head>
+<body>
+    <h1>Создайте пост</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ create_form }}
+        <input type="submit" value="Сохранить" >
+    </form>
+</body>
+</html>

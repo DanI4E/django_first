@@ -33,7 +33,3 @@ def login_user(request):
     else:
         form = LoginUserForm()
     return render(request, 'auth_form.html', {'form': form})
-
-
-def logout_user(request):
-    return HttpResponse("logout")
