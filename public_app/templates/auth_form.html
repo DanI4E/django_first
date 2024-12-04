@@ -7,10 +7,14 @@
 <body>
     <h1>Авторизация</h1>
 
-    <form method="post">
+    {% if error %}
+        <div> Вы ввели неверные данные. Повторите авторизацию. </div>
+    {% endif %}
+
+    <form method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
-        <p ><button type="submit">Войти</button></p>
+        {{ auth_form }}
+        <p><button type="submit">Войти</button></p>
     </form>
 </body>
 </html>
