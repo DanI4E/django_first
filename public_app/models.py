@@ -28,7 +28,8 @@ class Post(models.Model):
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
+    # related_name - аргумент, показывает как мы можем мз объекта пользователя обращаться к Profile
     avatar = models.ImageField(blank=True, null=True)
     phone_number = models.CharField(
         validators=[RegexValidator(regex=r'^((+7|7|8)+([0-9]){10})$')],
