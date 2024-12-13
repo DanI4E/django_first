@@ -4,6 +4,8 @@ from django.db import models
 import os
 from uuid import uuid4
 
+from django.utils.safestring import mark_safe
+
 
 def path_and_rename(instance, filename):
     upload_to = 'photos'
@@ -26,8 +28,17 @@ class Post(models.Model):
     is_public = models.BooleanField(default=True)
     image = models.ImageField(upload_to=path_and_rename, max_length=255, null=True, blank=True)
 
+    def get_image(self):
+        if self.image:
+            return mark_safe(f'<img src={self.image.url} width="100" height="100"')
+        else:
+            return 'Изображение не загружено'
+
+    get_image.short_description = 'Изображение'
+
 
 class Profile(models.Model):
+    objects = None
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     # related_name - аргумент, показывает как мы можем мз объекта пользователя обращаться к Profile
     avatar = models.ImageField(blank=True, null=True)

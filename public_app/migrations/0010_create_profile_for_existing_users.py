@@ -10,6 +10,9 @@ def create_profile_existing_users(apps, schema_editor):
         profile = profile_model(user=user)
         profile.save()
 
+    # profile_model.objects.bulk_create([{}, {}, {}]) - сигналы при bulk_create не работают,
+    # так как bulk_create не использует save() внутри себя
+
 
 class Migration(migrations.Migration):
     dependencies = [
