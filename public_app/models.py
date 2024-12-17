@@ -30,7 +30,7 @@ class Post(models.Model):
 
     def get_image(self):
         if self.image:
-            return mark_safe(f'<img src={self.image.url} width="100" height="100"')
+            return mark_safe(f'<a href="{self.image.url}"><img src={self.image.url} width="100" height="100"</a>')
         else:
             return 'Изображение не загружено'
 

@@ -4,6 +4,12 @@
     <title>{{ title }}</title>
 </head>
 <body>
+<div id="main_menu">
+    <a href="/">Главная</a>
+    <a href="/help">Помощь</a>
+    <a href="/goods">Товары</a>
+    <a href="/admin">Админка</a>
+</div>
     {%if user.is_authenticated %}<div>Пользователь авторизован как {{ user.username }}</div>{% endif %}
 
     {% for post in posts %}
