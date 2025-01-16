@@ -4,7 +4,7 @@ from django.db import models
 
 class Menu(models.Model):
     objects = None
-    menu_label = models.CharField(max_length=256, blank=True, null=False)
+    menu_label = models.CharField(max_length=256, blank=True, null=False, unique=True)
 
     def __str__(self):
         return f'{self.id}: {self.menu_label}'
